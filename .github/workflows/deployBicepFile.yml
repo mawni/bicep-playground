@@ -1,5 +1,5 @@
 on: [push]
-name: Bicep deployment
+name: Azure Bicep deployment
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
