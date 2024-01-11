@@ -1,6 +1,6 @@
-on: [push]
-on: workflow_dispatch
 name: Azure Bicep deployment
+
+on: [push, workflow_dispatch]
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
