@@ -23,4 +23,5 @@ jobs:
       - name: Bicep Lint
         run: |
           az bicep build --file main.bicep
+          cat main.json
         working-directory: ${{ env.workDir }}
