@@ -1,0 +1,26 @@
+name: Bicep IaC lint and validate
+
+# pipeline runs on PR request to main branch, or if manually dispatched
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  bicep_lint_and_validate:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout code
+      - uses: actions/checkout@main
+
+      # Log into Azure
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # This builds the bicep, to check that it has valid syntax
+      - name: Bicep Lint
+        run: |
+          az bicep build --file main.bicep
+        working-directory: ${{ env.workDir }}
