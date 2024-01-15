@@ -33,7 +33,7 @@ jobs:
       - name: Bicep Validate
         run: |
           az deployment group validate \
-            --resource-group ${{ secrets.AZURE_RG }}
+            --resource-group ${{ secrets.AZURE_RG }} \
             --template-file main.bicep \
             --parameters storagePrefix=mystore storageSKU=Standard_LRS
         working-directory: ${{ env.workDir }}
