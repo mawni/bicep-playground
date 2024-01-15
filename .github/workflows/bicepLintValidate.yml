@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  workDir: /bicep
+  workDir: bicep
 
 jobs:
   bicep_lint_and_validate:
