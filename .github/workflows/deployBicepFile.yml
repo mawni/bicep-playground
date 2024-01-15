@@ -5,6 +5,10 @@ on:
     branches:
       - main
   workflow_dispatch:
+
+env:
+  workDir: /bicep
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
