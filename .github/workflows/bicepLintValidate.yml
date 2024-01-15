@@ -28,3 +28,14 @@ jobs:
           az bicep build --file main.bicep
           cat main.json
         working-directory: ${{ env.workDir }}
+
+      # Bicep Validate
+      - name: Bicep Validate
+        run: |
+          az deployment group validate \
+            --resource-group ${{ secrets.AZURE_RG }}
+            --template-file main.bicep \
+            --parameters storagePrefix=mystore storageSKU=Standard_LRS
+        working-directory: ${{ env.workDir }}
+        # For the 'az deployment group validate' command, it deploys to a resource group
+        # Change to 'az deployment sub validate' if you want to deploy to the subscription level
